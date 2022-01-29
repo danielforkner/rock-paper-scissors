@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+}
+
+.header {
+    display: block;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.fighterGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "r0 p0 s0"
+        "r1 p1 s1"
+        "r2 p2 s2"
+        "r3 p3 s3"
+        "r4 p4 s4";
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: 500px;
+}
+
+.fighter {
+    background-color: bisque;
+}
+
+.fighter.active {
+    background-color: red;
+}
+
+#r0 {grid-area: r0};
+#r1 {grid-area: r1};
+#r2 {grid-area: r2};
+#r3 {grid-area: r3};
+#r4 {grid-area: r4};
+#p0 {grid-area: p0};
+#p1 {grid-area: p1};
+#p2 {grid-area: p2};
+#p3 {grid-area: p3};
+#p4 {grid-area: p4};
+#s0 {grid-area: s0};
+#s1 {grid-area: s1};
+#s2 {grid-area: s2};
+#s3 {grid-area: s3};
+#s4 {grid-area: s4};
+
+.footer {
+    position: fixed;
+    bottom: 0;
+}

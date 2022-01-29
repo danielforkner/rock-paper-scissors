@@ -1,87 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="js.js" defer></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <script>
-        let playerSelection;
-        let computerSelection = computerPlay();
+    <div class="header">
+        <h1>Title</h1>
+        <p>Paragraph</p>
+        <p>Other paragraph</p>
+    </div>
+    
+    <div class="main">
+        <h2>CHOOSE UR FIGHTER</h2>
+        <div class="fighterGrid">
+            <div class="fighter active" id="r0"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter" id="r1"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter" id="r2"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter" id="r3"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter" id="r4"><i class="far fa-hand-rock"></i></div>
+            
+            <div class="fighter" id="p0"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter" id="p1"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter" id="p2"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter" id="p3"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter" id="p4"><i class="far fa-hand-paper"></i></div>
+            
+            <div class="fighter" id="s0"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter" id="s1"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter" id="s2"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter" id="s3"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter" id="s4"><i class="far fa-hand-scissors"></i></div>
+            
+        </div>
+        <div class="controls">
+            <p>KEYBOARD WSAD</p>
+            <p>SPACEBAR</p>
+        </div>
+    </div>
 
-        do {
-            playerSelection = humanPlay();
-        } while (!playerSelection);
-        
-        console.log("Computer chose: " + computerSelection);
-        console.log(playRound(playerSelection, computerSelection));
-
-        function playRound(playerSelect, computerSelect) {
-            switch (playerSelect) {
-                case 'scissors':
-                    if (computerSelect === 'scissors') {
-                        return "You Tie! You both played scissors";
-                        break;
-                    } else if (computerSelect === 'rock') {
-                        return "You Lose! Rock beats scissors";
-                        break;
-                    } else {
-                        return "You Win! Scissors beats paper :)";
-                        break;
-                    }
-                case 'rock':
-                    if (computerSelect === 'rock') {
-                        return "You Tie! You both played rock";
-                        break;
-                    } else if (computerSelect === 'scissors') {
-                        return "You Win! Rock beats scissors :)";
-                        break;
-                    } else {
-                        return "You Lose! Paper beats rock";
-                        break;
-                    }
-                case 'paper':
-                    if (computerSelect === 'paper') {
-                        return "You Tie! You both played paper";
-                        break;
-                    } else if (computerSelect === 'scissors') {
-                        return "You Lose! scissors beats paper";
-                        break;
-                    } else {
-                        return "You win! Paper beats rock :)";
-                        break;
-                    }
-            };
-        };
-
-        function humanPlay() {
-            let play = window.prompt("What is your play?").toLowerCase();
-            if (play === 'scissors' || play === 'rock' || play === 'paper') {
-                return play;
-            } else {
-                console.log("enter a valid choice");
-                return false;
-            }
-        };
-
-        function computerPlay() {
-            let play = Math.floor(Math.random() * 3);
-            switch (play) {
-                case 0: 
-                    return "scissors";
-                    break;
-                case 1: 
-                    return "rock";
-                    break;
-                case 2:
-                    return "paper";
-                    break;
-                default:
-                    return "error";
-            };
-        };
-    </script>
+    <div class="footer">
+        <p>copyright</p>
+    </div>
 </body>
 </html>
