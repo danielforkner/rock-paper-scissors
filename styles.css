@@ -5,7 +5,9 @@ body {
     text-align: center;
 }
 
-.header {
+#selectedFighter, #computerFighter {
+    font-size: 30em;
+    opacity: 0.5;
 }
 
 /* MAIN */
@@ -13,6 +15,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.realMain {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    overflow: hidden;
 }
 
 .fighterGrid {
