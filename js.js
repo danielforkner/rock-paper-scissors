@@ -93,9 +93,9 @@ function findFighter(event) {
     let currentFighter = document.querySelector('.active');
     let ith, jth;
     for (let i = 0; i < rowLen; i++) {
-        ith = fighters[i].indexOf(currentFighter.id);
-        if (ith !== -1) {
-            jth = i;
+        jth = fighters[i].indexOf(currentFighter.id);
+        if (jth !== -1) {
+            ith = i;
             break;
         }
     }
@@ -140,11 +140,10 @@ function changeFighter(current, direction, ith, jth) {
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith][jth + 1];
-                console.log('new ID: ' + newFighterId);
                 newFighter = document.querySelector('#' + newFighterId)
                 console.log('newFighter: '+ newFighter.id);
                 newFighter.classList.add('active');
-                console.log(`current: fighters[${ith}][${jth + 1}]`)
+                console.log(`next: fighters[${ith}][${jth + 1}]`)
                 break;
             }
         case 'down':

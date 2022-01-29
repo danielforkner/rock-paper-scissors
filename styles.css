@@ -11,6 +11,9 @@ body {
     flex-direction: column;
 }
 
+/* @Not_green You will need to change the order of the boxes in your html
+Grid can change the placement in row, but it cannot modify the order
+ */
 .fighterGrid {
     border: 1px solid red;
     display: grid;
