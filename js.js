@@ -85,29 +85,81 @@ const fighters = [
 const rowLen = fighters.length;
 const columnLen = fighters[0].length;
 
-const arrows = {up: 38, down: 40, left: 37, right: 39, w: 87, s: 83, a: 65, d: 68};
-window.addEventListener('keydown', findFighter);
+const arrows = {38: 'up', 87: 'up', 40: 'down', 83: 'down', 37: 'left', 65: 'left', 39: 'right', 68: 'right'};
 
-function findFighter() {
-    current = document.querySelector('.active').id;
+function findFighter(event) {
+    
+    // find grid position
+    let currentFighter = document.querySelector('.active');
+    let ith, jth;
     for (let i = 0; i < rowLen; i++) {
-        let index = fighters[i].indexOf(current);
-        if (index !== -1) {
-            console.log(`fighters[${i}][${index}]`);
-            return `fighters[${i}][${index}]`; 
+        ith = fighters[i].indexOf(currentFighter.id);
+        if (ith !== -1) {
+            jth = i;
+            break;
         }
     }
+    
+    console.log(`current: fighters[${ith}][${jth}]`);
+    let direction = arrows[event.keyCode]; 
+    changeFighter(currentFighter, direction, ith, jth);
+
 };
 
-function selectFighter(e) {
-    switch (`${e.keyCode}`) {
-        case 38:
-            break;
-        case 40:
-            break;
-        case 37:
-            break;
-        case 39:
-            break;
+function changeFighter(current, direction, ith, jth) {
+    let newFighter;
+    console.log('direction: ' + direction);
+    switch (direction) {
+        case 'up': 
+            if (ith === 0) {
+                break;
+            } else {
+                current.classList.remove('active');
+                newFighterId = fighters[ith - 1][jth];
+                console.log('new ID: ' + newFighterId);
+                newFighter = document.querySelector('#' + newFighterId)
+                console.log('newFighter: '+ newFighter.id);
+                newFighter.classList.add('active');
+                break;
+            }
+        case 'left':
+            if (jth === 0) {
+                break;
+            } else {
+                current.classList.remove('active');
+                newFighterId = fighters[ith][jth - 1];
+                console.log('new ID: ' + newFighterId);
+                newFighter = document.querySelector('#' + newFighterId)
+                console.log('newFighter: '+ newFighter.id);
+                newFighter.classList.add('active');
+                break;
+            }
+        case 'right':
+            if (jth === columnLen - 1) {
+                break;
+            } else {
+                current.classList.remove('active');
+                newFighterId = fighters[ith][jth + 1];
+                console.log('new ID: ' + newFighterId);
+                newFighter = document.querySelector('#' + newFighterId)
+                console.log('newFighter: '+ newFighter.id);
+                newFighter.classList.add('active');
+                console.log(`current: fighters[${ith}][${jth + 1}]`)
+                break;
+            }
+        case 'down':
+            if (ith === rowLen - 1) {
+                break;
+            } else {
+                current.classList.remove('active');
+                newFighterId = fighters[ith + 1][jth];
+                console.log('new ID: ' + newFighterId);
+                newFighter = document.querySelector('#' + newFighterId)
+                console.log('newFighter: '+ newFighter.id);
+                newFighter.classList.add('active');
+                break;
+            }
     };
 };
+
+window.addEventListener('keydown', findFighter);
