@@ -1,3 +1,5 @@
+// GAME LOGIC
+
 let playerSelection;
 let computerSelection = computerPlay();
 
@@ -85,10 +87,12 @@ const fighters = [
 const rowLen = fighters.length;
 const columnLen = fighters[0].length;
 
-const arrows = {38: 'up', 87: 'up', 40: 'down', 83: 'down', 37: 'left', 65: 'left', 39: 'right', 68: 'right'};
+const arrows = {32: 'spacebar', 38: 'up', 87: 'up', 40: 'down', 83: 'down', 37: 'left', 65: 'left', 39: 'right', 68: 'right'};
 
 function findFighter(event) {
-    
+    if (!arrows[event.keyCode]) {
+        return;
+    }
     // find grid position
     let currentFighter = document.querySelector('.active');
     let ith, jth;
@@ -112,53 +116,65 @@ function changeFighter(current, direction, ith, jth) {
     switch (direction) {
         case 'up': 
             if (ith === 0) {
+                current.classList.remove('active');
+                newFighterId = fighters[rowLen - 1][jth];
+                newFighter = document.querySelector('#' + newFighterId)
+                newFighter.classList.add('active');
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith - 1][jth];
-                console.log('new ID: ' + newFighterId);
                 newFighter = document.querySelector('#' + newFighterId)
-                console.log('newFighter: '+ newFighter.id);
                 newFighter.classList.add('active');
                 break;
             }
         case 'left':
             if (jth === 0) {
+                current.classList.remove('active');
+                newFighterId = fighters[ith][columnLen - 1];
+                newFighter = document.querySelector('#' + newFighterId)
+                newFighter.classList.add('active');
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith][jth - 1];
-                console.log('new ID: ' + newFighterId);
                 newFighter = document.querySelector('#' + newFighterId)
-                console.log('newFighter: '+ newFighter.id);
                 newFighter.classList.add('active');
                 break;
             }
         case 'right':
             if (jth === columnLen - 1) {
+                current.classList.remove('active');
+                newFighterId = fighters[ith][0];
+                newFighter = document.querySelector('#' + newFighterId)
+                newFighter.classList.add('active');
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith][jth + 1];
                 newFighter = document.querySelector('#' + newFighterId)
-                console.log('newFighter: '+ newFighter.id);
                 newFighter.classList.add('active');
-                console.log(`next: fighters[${ith}][${jth + 1}]`)
                 break;
             }
         case 'down':
             if (ith === rowLen - 1) {
+                current.classList.remove('active');
+                newFighterId = fighters[0][jth];
+                newFighter = document.querySelector('#' + newFighterId)
+                newFighter.classList.add('active');
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith + 1][jth];
-                console.log('new ID: ' + newFighterId);
                 newFighter = document.querySelector('#' + newFighterId)
-                console.log('newFighter: '+ newFighter.id);
                 newFighter.classList.add('active');
                 break;
             }
+        case 'spacebar':
+            document.querySelector('.fightArea').classList.toggle('invisible');
     };
 };
 
 window.addEventListener('keydown', findFighter);
+
+// FIGHT AREA ANIMATION

@@ -18,28 +18,30 @@
     
     <div class="main">
         <h2>CHOOSE UR FIGHTER</h2>
+        <div><h2>Controls: WASD and Spacebar to select</h2></div>
         <div class="fighterGrid">
-            <div class="fighter active" id="r0"><i class="far fa-hand-rock"></i></div>
-            <div class="fighter" id="p0"><i class="far fa-hand-paper"></i></div>
-            <div class="fighter" id="s0"><i class="far fa-hand-scissors"></i></div>
-            <div class="fighter" id="r1"><i class="far fa-hand-rock"></i></div>
-            <div class="fighter" id="p1"><i class="far fa-hand-paper"></i></div>
-            <div class="fighter" id="s1"><i class="far fa-hand-scissors"></i></div>
-            <div class="fighter" id="r2"><i class="far fa-hand-rock"></i></div>
-            <div class="fighter" id="p2"><i class="far fa-hand-paper"></i></div>
-            <div class="fighter" id="s2"><i class="far fa-hand-scissors"></i></div>
-            <div class="fighter" id="r3"><i class="far fa-hand-rock"></i></div>
-            <div class="fighter" id="p3"><i class="far fa-hand-paper"></i></div>
-            <div class="fighter" id="s3"><i class="far fa-hand-scissors"></i></div>
-            <div class="fighter" id="r4"><i class="far fa-hand-rock"></i></div>
-            <div class="fighter" id="p4"><i class="far fa-hand-paper"></i></div>            
-            <div class="fighter" id="s4"><i class="far fa-hand-scissors"></i></div>
-            
+            <div class="fighter rock active" id="r0"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter paper" id="p0"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter scissor" id="s0"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter rock" id="r1"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter paper" id="p1"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter scissor" id="s1"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter rock" id="r2"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter paper" id="p2"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter scissor" id="s2"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter rock" id="r3"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter paper" id="p3"><i class="far fa-hand-paper"></i></div>
+            <div class="fighter scissor" id="s3"><i class="far fa-hand-scissors"></i></div>
+            <div class="fighter rock" id="r4"><i class="far fa-hand-rock"></i></div>
+            <div class="fighter paper" id="p4"><i class="far fa-hand-paper"></i></div>            
+            <div class="fighter scissor" id="s4"><i class="far fa-hand-scissors"></i></div>
         </div>
-        <div class="controls">
-            <p>KEYBOARD WSAD</p>
-            <p>SPACEBAR</p>
-        </div>
+    </div>
+
+    <!-- Pop up fighting -->
+    <div class="fightArea invisible">
+        <div class="fightCard playerFighter"></div>
+        <div class="fightCard computerFighter"></div>
     </div>
 
     <div class="footer">
