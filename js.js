@@ -120,12 +120,14 @@ function changeFighter(current, direction, ith, jth) {
                 newFighterId = fighters[rowLen - 1][jth];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith - 1][jth];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             }
         case 'left':
@@ -134,12 +136,14 @@ function changeFighter(current, direction, ith, jth) {
                 newFighterId = fighters[ith][columnLen - 1];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith][jth - 1];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             }
         case 'right':
@@ -148,12 +152,14 @@ function changeFighter(current, direction, ith, jth) {
                 newFighterId = fighters[ith][0];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith][jth + 1];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             }
         case 'down':
@@ -162,16 +168,69 @@ function changeFighter(current, direction, ith, jth) {
                 newFighterId = fighters[0][jth];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             } else {
                 current.classList.remove('active');
                 newFighterId = fighters[ith + 1][jth];
                 newFighter = document.querySelector('#' + newFighterId)
                 newFighter.classList.add('active');
+                changeSelectedTitle(newFighter.id);
                 break;
             }
         case 'spacebar':
             document.querySelector('.fightArea').classList.toggle('invisible');
+    };
+};
+
+function changeSelectedTitle(id) {
+    let title = document.querySelector('.selectedNameLeft');
+    switch (id) {
+        case 'r0':
+            title.innerText = "Rock One"
+            break;
+        case 'r1':
+            title.innerText = "Rock Two"    
+            break;
+        case 'r2':
+            title.innerText = "Rock Three"    
+            break;
+        case 'r3':
+            title.innerText = "Rock Four"    
+            break;
+        case 'r4':
+            title.innerText = "Rock Five"    
+            break;
+        case 'p0':
+            title.innerText = "Paper One"
+            break;
+        case 'p1':
+            title.innerText = "Paper Two"
+            break;
+        case 'p2':
+            title.innerText = "Paper Three"
+            break;
+        case 'p3':
+            title.innerText = "Paper Four"
+            break;
+        case 'p4':
+            title.innerText = "Paper Five"
+            break;
+        case 's0':
+            title.innerText = "Scissor One"
+            break;
+        case 's1':
+            title.innerText = "Scissor Two"
+            break;
+        case 's2':
+            title.innerText = "Scissor Three"
+            break;
+        case 's3':
+            title.innerText = "Scissor Four"
+            break;
+        case 's4':
+            title.innerText = "Scissor Five"
+            break;
     };
 };
 
