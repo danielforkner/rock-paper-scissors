@@ -26,7 +26,7 @@
 
     <div class="realMain">
         <div class="selectedContainer">
-            <i class="far fa-hand-rock" id="selectedFighter"></i>
+            <i class="far fa-hand-rock selectedFighter"></i>
             <p class="selectedNameLeft">Rock One</p>
         </div>
         <div class="fighterGrid">
@@ -47,15 +47,24 @@
             <div class="fighter scissor" id="s4"><i class="far fa-hand-scissors"></i></div>
         </div>
         <div class="selectedContainer">
-            <i class="fas fa-question" id="computerFighter"></i>
+            <i class="fas fa-question computerFighter"></i>
             <p class="selectedNameRight">Unknown</p>
         </div>
     </div>
 
     <!-- Pop up fighting -->
     <div class="fightArea invisible">
-        <div class="fightCard playerFighter"></div>
-        <div class="fightCard computerFighter"></div>
+        <div class="fightCard">
+            <i class="selectedFighter"></i>
+            <div class="playerHealthbar"></div>
+        </div>
+        <div class="vsTextContainer">
+            <div class="versusText"></div>
+        </div>
+        <div class="fightCard">
+            <i class="fas fa-question computerFighter"></i>
+            <div class="computerHealthbar"></div>
+        </div>
     </div>
 
     <div class="footer">
