@@ -1,13 +1,29 @@
 body {
+    font-family: 'Sedgwick Ave', sans-serif;
     margin: 0;
     background-color: black;
     color: white;
     text-align: center;
 }
 
-#selectedFighter, #computerFighter {
+.header {
+    margin: 50px auto;
+}
+
+#selectedFighter {
     font-size: 30em;
-    opacity: 0.5;
+    opacity: 1;
+}
+
+#computerFighter {
+    font-size: 30em;
+    opacity: 0.9;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
 }
 
 .selectedContainer {
@@ -54,7 +70,8 @@ body {
 }
 
 .fighterGrid {
-    border: 1px solid red;
+    border: 1px solid gray;
+    background-color: white;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto auto auto;
@@ -65,20 +82,14 @@ body {
 }
 
 .fighter {
-    color: black;
     font-size: 5em;
-    border: 1px solid green;
-    background-color: white;
+    border: 1px solid gray;
+    overflow: hidden;
 }
 
-.active.rock {
+.active {
     background-color: yellow;
-}
-.active.paper {
-    background-color: lightblue;
-}
-.active.scissor {
-    background-color: lightgreen;
+    transform: scale(1.05);
 }
 
 /* POPUP */
@@ -98,6 +109,7 @@ body {
     height: 150px;
     width: 150px;
     border: 1px solid blue;
+    font-size: 5em;
 }
 
 /* toggle once player has selected fighter */
@@ -114,3 +126,22 @@ body {
     width: 100%;
     text-align: center;
 }
+
+/* Individual Fighter Skins */
+#r0, .r0 {color: black}
+#r1, .r1 {color: blue}
+#r2, .r2 {color: green}
+#r3, .r3 {color: red}
+#r4, .r4 {color: purple}
+#p0, .p0 {color: black}
+#p1, .p1 {color: blue}
+#p2, .p2 {color: green}
+#p3, .p3 {color: red}
+#p4, .p4 {color: purple}
+#s0, .s0 {color: black}
+#s1, .s1 {color: blue}
+#s2, .s2 {color: green}
+#s3, .s3 {color: red}
+#s4, .s4 {color: Purple}
+
+

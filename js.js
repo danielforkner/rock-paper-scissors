@@ -178,58 +178,91 @@ function changeFighter(current, direction, ith, jth) {
                 changeSelectedTitle(newFighter.id);
                 break;
             }
+        // start the fight result animation
         case 'spacebar':
-            document.querySelector('.fightArea').classList.toggle('invisible');
+            startFight();
+            cycleImages();
     };
 };
 
+function startFight() {
+    document.querySelector('.fightArea').classList.toggle('invisible');
+};
+
+// function cycleImages() {
+//     let compCard = document.querySelector('.computerFighter');
+//     let count = 20;
+//     while (count > 0) {
+//         setInterval
+//     }
+//     compCard.innerHTML = `<i class="far fa-hand-rock p0"></i>`;
+//     compCard.innerHTML = `<i class="far fa-hand-rock r0"></i>`;
+//     compCard.innerHTML = `<i class="far fa-hand-rock s0"></i>`;
+// };
+
 function changeSelectedTitle(id) {
     let title = document.querySelector('.selectedNameLeft');
+    let color = document.querySelector('#selectedFighter');
     switch (id) {
         case 'r0':
-            title.innerText = "Rock One"
+            title.innerText = "Rock One";
+            color.style.color = 'white';
             break;
         case 'r1':
-            title.innerText = "Rock Two"    
+            title.innerText = "Rock Two";
+            color.style.color = 'blue';    
             break;
         case 'r2':
-            title.innerText = "Rock Three"    
+            title.innerText = "Rock Three";
+            color.style.color = 'green';    
             break;
         case 'r3':
-            title.innerText = "Rock Four"    
+            title.innerText = "Rock Four";
+            color.style.color = 'red';    
             break;
         case 'r4':
-            title.innerText = "Rock Five"    
+            title.innerText = "Rock Five";
+            color.style.color = 'purple';    
             break;
         case 'p0':
-            title.innerText = "Paper One"
+            title.innerText = "Paper One";
+            color.style.color = 'white';
             break;
         case 'p1':
-            title.innerText = "Paper Two"
+            title.innerText = "Paper Two";
+            color.style.color = 'blue';
             break;
         case 'p2':
-            title.innerText = "Paper Three"
+            title.innerText = "Paper Three";
+            color.style.color = 'green';
             break;
         case 'p3':
-            title.innerText = "Paper Four"
+            title.innerText = "Paper Four";
+            color.style.color = 'red';
             break;
         case 'p4':
-            title.innerText = "Paper Five"
+            title.innerText = "Paper Five";
+            color.style.color = 'purple';
             break;
         case 's0':
-            title.innerText = "Scissor One"
+            title.innerText = "Scissor One";
+            color.style.color = 'white';
             break;
         case 's1':
-            title.innerText = "Scissor Two"
+            title.innerText = "Scissor Two";
+            color.style.color = 'blue';
             break;
         case 's2':
-            title.innerText = "Scissor Three"
+            title.innerText = "Scissor Three";
+            color.style.color = 'green';
             break;
         case 's3':
-            title.innerText = "Scissor Four"
+            title.innerText = "Scissor Four";
+            color.style.color = 'red';
             break;
         case 's4':
-            title.innerText = "Scissor Five"
+            title.innerText = "Scissor Five";
+            color.style.color = 'purple';
             break;
     };
 };
