@@ -6,8 +6,11 @@ body {
     text-align: center;
 }
 
-.header {
-    margin: 50px auto;
+.controls {
+    display: flex;
+    gap: 25px;
+    align-items: flex-end;
+    margin: 0 0 25px 0;
 }
 
 #selectedFighter {
