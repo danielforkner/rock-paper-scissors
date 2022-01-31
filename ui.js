@@ -191,7 +191,7 @@ function startFight(playerFighter, computerFighter) {
             break;
     };
 
-    versusText.classList.toggle('animateMe');
+    versusText.classList.add('animateMe');
 
     // remove playerfighter txt & replace with "VS"
     setTimeout(() => {
@@ -278,9 +278,6 @@ function startFight(playerFighter, computerFighter) {
             break;
     }
 
-    // remove fight area, return mystery computer image
-    // and return keydown control to user
-    // and reset healthbars
     // reset multiple items to original state
     setTimeout(() => {
         displayFightArea();
@@ -290,6 +287,7 @@ function startFight(playerFighter, computerFighter) {
         card.classList.add('fas', 'fa-question', 'computerFighter');
         playerHealth.style.backgroundColor = 'green';
         computerHealth.style.backgroundColor = 'green';
+        versusText.classList.remove('animateMe');
     }, SPEED * 9);
 };
 
