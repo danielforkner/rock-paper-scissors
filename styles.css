@@ -45,12 +45,12 @@ body {
 }
 
 .selectedContainer > .selectedFighter {
-    font-size: 30em;
+    font-size: 20em;
     opacity: 1;
 }
 
 .selectedContainer > .computerFighter {
-    font-size: 30em;
+    font-size: 20em;
     opacity: 0.9;
 }
 
@@ -211,11 +211,11 @@ body {
 /* Responsiveness */
 @media screen and (max-width: 1370px) {
     .selectedContainer > .selectedFighter {
-        font-size: 20em;
+        font-size: 15em;
     }
     
     .selectedContainer > .computerFighter {
-        font-size: 20em;
+        font-size: 15em;
     }
 }
 
