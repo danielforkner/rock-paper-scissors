@@ -106,67 +106,84 @@ function changeFighter(current, direction, ith, jth) {
             }
         // start the fight result animation
         case 'spacebar':
-            startFight();
-            animateFightText(current.id, computerPlay());
+            displayFightArea();
+            startFight(current.id, computerPlay());
     };
 };
 
-function startFight() {
+function displayFightArea() {
     document.querySelector('.fightArea').classList.toggle('invisible');
-    // let compCard = document.querySelector('.computerFighter');
 };
 
-function animateFightText(playerFighter, computerFighter) {
+function startFight(playerFighter, computerFighter) {
     let versusText = document.querySelector('.versusText');
     let container = document.querySelector('.vsTextContainer');
+    let card = document.querySelector('.fightCardLeft');
+    let image = card.querySelector('.selectedFighter');
     const SPEED = 1000;
 
-    // animate the text for player's fighter
+    // animate the text for player's fighter 
+    // and display player fighter in fight card
     switch (playerFighter) {
         case 'r0':
             versusText.innerText = "Rock One";
+            image.classList.add('r0', 'far', 'fa-hand-rock');
             break;
         case 'r1':
             versusText.innerText = "Rock Two";  
+            image.classList.add('r1', 'far', 'fa-hand-rock');
             break;
         case 'r2':
             versusText.innerText = "Rock Three";   
+            image.classList.add('r2', 'far', 'fa-hand-rock');
             break;
         case 'r3':
             versusText.innerText = "Rock Four";
+            image.classList.add('r3', 'far', 'fa-hand-rock');
             break;
         case 'r4':
             versusText.innerText = "Rock Five";
+            image.classList.add('r4', 'far', 'fa-hand-rock');
             break;
         case 'p0':
             versusText.innerText = "Paper One";
+            image.classList.add('p0', 'far', 'fa-hand-paper');
             break;
         case 'p1':
             versusText.innerText = "Paper Two";
+            image.classList.add('p1', 'far', 'fa-hand-paper');
             break;
         case 'p2':
             versusText.innerText = "Paper Three";
+            image.classList.add('p2', 'far', 'fa-hand-paper');
             break;
         case 'p3':
             versusText.innerText = "Paper Four";
+            image.classList.add('p3', 'far', 'fa-hand-paper');
             break;
         case 'p4':
             versusText.innerText = "Paper Five";
+            image.classList.add('p4', 'far', 'fa-hand-paper');
             break;
         case 's0':
             versusText.innerText = "Scissor One";
+            image.classList.add('s0', 'far', 'fa-hand-scissors');
             break;
         case 's1':
             versusText.innerText = "Scissor Two";
+            image.classList.add('s1', 'far', 'fa-hand-scissors');
             break;
         case 's2':
             versusText.innerText = "Scissor Three";
+            image.classList.add('s2', 'far', 'fa-hand-scissors');
             break;
         case 's3':
             versusText.innerText = "Scissor Four";
+            image.classList.add('s3', 'far', 'fa-hand-scissors');
             break; 
         case 's4':
             versusText.innerText = "Scissor Five";
+            image.classList.add('s4', 'far', 'fa-hand-scissors');
             break;
     };
 
@@ -181,13 +198,17 @@ function animateFightText(playerFighter, computerFighter) {
         container.append(versusText);
     }, SPEED);
 
-    // remove "VS" and replace with computerFighter
+    // remove "VS" and replace with computerFighter AND update image
     setTimeout(() => {
         versusText.remove();
         versusText = document.createElement("div")
         versusText.classList.add('versusText', 'animateMe');
         versusText.innerText = computerFighter + '...';
         container.append(versusText);
+    }, SPEED * 2);
+
+    setTimeout(() => {
+        displayComputerFighter(computerFighter);
     }, SPEED * 2);
 
     // remove computerFighter and replace with FIGHT!
@@ -206,15 +227,16 @@ function animateFightText(playerFighter, computerFighter) {
 
     // find winner, update healthbar, display result text
     let result = playRound(playerFighter, computerFighter);
-    let playerHealth = document.getElementById('#playerHealthbar');
-    let computerHealth = document.getElementById('#computerHealthbar');
-    alert(computerHealth.id);
+    let playerHealth = document.querySelector('.playerHealthbar');
+    let computerHealth = document.querySelector('.computerHealthbar');
     versusText = document.createElement("div");
     versusText.classList.add('versusText');
     switch (result) {
         case 0:
             // update healthbar
-            playerHealth.style.backgroundColor = 'red';
+            setTimeout(() => {
+                playerHealth.style.backgroundColor = 'red';
+            }, SPEED * 5);
             // update text
             setTimeout(() => {
                 versusText.innerText = 'YOU LOSE';
@@ -224,8 +246,10 @@ function animateFightText(playerFighter, computerFighter) {
             break;
         case 1:
             // update healthbar
+            setTimeout(() => {
             playerHealth.style.backgroundColor = 'red';
             computerHealth.style.backgroundColor = 'red';
+            }, SPEED * 5);
             // update text
             setTimeout(() => {
                 versusText.innerText = 'TIE';
@@ -235,7 +259,9 @@ function animateFightText(playerFighter, computerFighter) {
             break;
         case 2:
             // update healthbar
+            setTimeout(() => {
             computerHealth.style.backgroundColor = 'red';
+            }, SPEED * 5);
             // update text
             setTimeout(() => {
                 versusText.innerText = 'YOU WIN';
@@ -245,7 +271,28 @@ function animateFightText(playerFighter, computerFighter) {
             break;
     }
 
+    // remove fight area, and return keydown contorl to user
 };
+
+function displayComputerFighter(fighter) {
+    let image = document.querySelector('.small');
+    image.classList.remove('fas', 'fa-question', 'computerFighter');
+    switch (fighter) {
+        case 'paper':
+            image.classList.add('p0', 'far', 'fa-hand-paper');
+            break;
+        case 'rock':
+            image.classList.add('r0', 'far', 'fa-hand-rock');
+            break;
+        case 'scissors':
+            image.classList.add('r0', 'far', 'fa-hand-scissors');
+            break;
+    };
+}
+
+function updateScore(result) {
+    
+}
 
 function resetAnimations(timeout) {
     setTimeout (() => {
