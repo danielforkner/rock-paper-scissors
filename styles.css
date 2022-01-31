@@ -39,6 +39,11 @@ body {
     margin: 0 0 25px 0;
 }
 
+.selectedContainer {
+    position: relative;
+    width: 480px;
+}
+
 .selectedContainer > .selectedFighter {
     font-size: 30em;
     opacity: 1;
@@ -56,11 +61,6 @@ body {
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
-}
-
-.selectedContainer {
-    position: relative;
-    width: 480px;
 }
 
 .selectedNameLeft, .selectedNameRight {
@@ -206,5 +206,21 @@ body {
         transform: scale(1.5);
         opacity: 0.5;
     }
+}
 
+/* Responsiveness */
+
+@media screen and (max-width: 750px) {
+    .selectedContainer {
+        display: none;
+    }    
+}
+
+@media screen and (max-width: 450px) {
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        margin: 0 0 25px 0;
+    }
 }

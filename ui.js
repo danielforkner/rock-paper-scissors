@@ -1,6 +1,8 @@
 var playerScore = 0;
 var computerScore = 0;
 
+window.addEventListener('keydown', findFighter);
+
 // GRID SELECTION
 const fighters = [
     ['r0', 'p0', 's0'],
@@ -107,6 +109,7 @@ function changeFighter(current, direction, ith, jth) {
             }
         // start the fight result animation
         case 'spacebar':
+            window.removeEventListener('keydown', findFighter);
             displayFightArea();
             startFight(current.id, computerPlay());
     };
@@ -272,7 +275,18 @@ function startFight(playerFighter, computerFighter) {
             break;
     }
 
-    // remove fight area, and return keydown contorl to user
+    // remove fight area, return mystery computer image
+    // and return keydown control to user
+    // and reset healthbars
+    setTimeout(() => {
+        displayFightArea();
+        window.addEventListener('keydown', findFighter);
+        let image = document.querySelector('.small');
+        image.classList.remove('far', 'p0', 'fa-hand-paper', 'fa-hand-rock', 'fa-hand-scissors');
+        image.classList.add('fas', 'fa-question', 'computerFighter');
+        document.querySelector('.playerHealthBar').style.backgroundColor = green;
+        document.querySelector('.computerHealthBar').style.backgroundColor = green;
+    }, SPEED * 10);
 };
 
 function displayComputerFighter(fighter) {
@@ -283,10 +297,10 @@ function displayComputerFighter(fighter) {
             image.classList.add('p0', 'far', 'fa-hand-paper');
             break;
         case 'rock':
-            image.classList.add('r0', 'far', 'fa-hand-rock');
+            image.classList.add('p0', 'far', 'fa-hand-rock');
             break;
         case 'scissors':
-            image.classList.add('r0', 'far', 'fa-hand-scissors');
+            image.classList.add('p0', 'far', 'fa-hand-scissors');
             break;
     };
 }
@@ -299,12 +313,10 @@ function updateScore(result) {
             break;
         case 'win':
             playerScore++;
-            alert(playerScore);
             pScore.innerText = playerScore; 
             break;
         case 'lose':
             computerScore++;
-            alert(computerScore);
             cScore.innerText = computerScore;
             break;
     }
@@ -383,13 +395,6 @@ function changeSelectedTitle(id) {
     };
 };
 
-window.addEventListener('keydown', findFighter);
-
-// FIGHT AREA ANIMATION
-
-
-
-
 // GAME LOGIC
 function playRound(playerSelect, computerSelect) {
     // 0 is lose; 1 is tie; 2 is win;
@@ -431,16 +436,6 @@ function playRound(playerSelect, computerSelect) {
             }
     };
 };
-
-// function humanPlay() {
-//     let play = window.prompt("What is your play?").toLowerCase();
-//     if (play === 'scissors' || play === 'rock' || play === 'paper') {
-//         return play;
-//     } else {
-//         console.log("enter a valid choice");
-//         return false;
-//     }
-// };
 
 function computerPlay() {
     let play = Math.floor(Math.random() * 3);
