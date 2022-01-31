@@ -246,6 +246,7 @@ function startFight(playerFighter, computerFighter) {
                 versusText.innerText = 'YOU LOSE';
                 container.append(versusText);
                 updateScore('lose');
+                versusText.classList.toggle('animateMe');
             }, SPEED * 6);
             break;
         case 1:
@@ -259,6 +260,7 @@ function startFight(playerFighter, computerFighter) {
                 versusText.innerText = 'TIE';
                 container.append(versusText);
                 updateScore('tie');
+                versusText.classList.toggle('animateMe');
             }, SPEED * 6);
             break;
         case 2:
@@ -271,6 +273,7 @@ function startFight(playerFighter, computerFighter) {
                 versusText.innerText = 'YOU WIN';
                 container.append(versusText);
                 updateScore('win');
+                versusText.classList.toggle('animateMe');
             }, SPEED * 6);
             break;
     }
@@ -278,15 +281,16 @@ function startFight(playerFighter, computerFighter) {
     // remove fight area, return mystery computer image
     // and return keydown control to user
     // and reset healthbars
+    // reset multiple items to original state
     setTimeout(() => {
         displayFightArea();
         window.addEventListener('keydown', findFighter);
-        let image = document.querySelector('.small');
-        image.classList.remove('far', 'p0', 'fa-hand-paper', 'fa-hand-rock', 'fa-hand-scissors');
-        image.classList.add('fas', 'fa-question', 'computerFighter');
-        document.querySelector('.playerHealthBar').style.backgroundColor = green;
-        document.querySelector('.computerHealthBar').style.backgroundColor = green;
-    }, SPEED * 10);
+        let card = document.querySelector('.small');
+        card.classList.remove('far', 'p0', 'fa-hand-paper', 'fa-hand-rock', 'fa-hand-scissors');
+        card.classList.add('fas', 'fa-question', 'computerFighter');
+        playerHealth.style.backgroundColor = 'green';
+        computerHealth.style.backgroundColor = 'green';
+    }, SPEED * 9);
 };
 
 function displayComputerFighter(fighter) {

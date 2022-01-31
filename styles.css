@@ -209,8 +209,17 @@ body {
 }
 
 /* Responsiveness */
+@media screen and (max-width: 1370px) {
+    .selectedContainer > .selectedFighter {
+        font-size: 20em;
+    }
+    
+    .selectedContainer > .computerFighter {
+        font-size: 20em;
+    }
+}
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 1025px) {
     .selectedContainer {
         display: none;
     }    
