@@ -122,74 +122,7 @@ function displayFightArea() {
 function startFight(playerFighter, computerFighter) {
     let versusText = document.querySelector('.versusText');
     let container = document.querySelector('.vsTextContainer');
-    let card = document.querySelector('.fightCardLeft');
-    let image = card.querySelector('.selectedFighter');
     const SPEED = 1000;
-
-    // animate the text for player's fighter 
-    // and display player fighter in fight card
-    switch (playerFighter) {
-        case 'r0':
-            versusText.innerText = "Rock One";
-            image.classList.add('r0', 'far', 'fa-hand-rock');
-            break;
-        case 'r1':
-            versusText.innerText = "Rock Two";  
-            image.classList.add('r1', 'far', 'fa-hand-rock');
-            break;
-        case 'r2':
-            versusText.innerText = "Rock Three";   
-            image.classList.add('r2', 'far', 'fa-hand-rock');
-            break;
-        case 'r3':
-            versusText.innerText = "Rock Four";
-            image.classList.add('r3', 'far', 'fa-hand-rock');
-            break;
-        case 'r4':
-            versusText.innerText = "Rock Five";
-            image.classList.add('r4', 'far', 'fa-hand-rock');
-            break;
-        case 'p0':
-            versusText.innerText = "Paper One";
-            image.classList.add('p0', 'far', 'fa-hand-paper');
-            break;
-        case 'p1':
-            versusText.innerText = "Paper Two";
-            image.classList.add('p1', 'far', 'fa-hand-paper');
-            break;
-        case 'p2':
-            versusText.innerText = "Paper Three";
-            image.classList.add('p2', 'far', 'fa-hand-paper');
-            break;
-        case 'p3':
-            versusText.innerText = "Paper Four";
-            image.classList.add('p3', 'far', 'fa-hand-paper');
-            break;
-        case 'p4':
-            versusText.innerText = "Paper Five";
-            image.classList.add('p4', 'far', 'fa-hand-paper');
-            break;
-        case 's0':
-            versusText.innerText = "Scissor One";
-            image.classList.add('s0', 'far', 'fa-hand-scissors');
-            break;
-        case 's1':
-            versusText.innerText = "Scissor Two";
-            image.classList.add('s1', 'far', 'fa-hand-scissors');
-            break;
-        case 's2':
-            versusText.innerText = "Scissor Three";
-            image.classList.add('s2', 'far', 'fa-hand-scissors');
-            break;
-        case 's3':
-            versusText.innerText = "Scissor Four";
-            image.classList.add('s3', 'far', 'fa-hand-scissors');
-            break; 
-        case 's4':
-            versusText.innerText = "Scissor Five";
-            image.classList.add('s4', 'far', 'fa-hand-scissors');
-            break;
-    };
 
     versusText.classList.add('animateMe');
 
@@ -331,68 +264,152 @@ function resetAnimations(timeout) {
 }
 
 function changeSelectedTitle(id) {
+    // Update main page images and text
     let title = document.querySelector('.selectedNameLeft');
-    let color = document.querySelector('.selectedFighter');
+    let container = document.querySelector('.selectedContainer');
+    let image = container.querySelector('.selectedFighter');
+    image.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-scissors');
+    
+    // Update fight area text and images
+    let versusText = document.querySelector('.versusText');
+    let fightCard = document.querySelector('.fightCardLeft');
+    let fightImage = fightCard.querySelector('.selectedFighter');
+    fightImage.classList.remove('fa-hand-rock', 'fa-hand-paper', 'fa-hand-scissors')
     switch (id) {
         case 'r0':
             title.innerText = "Rock One";
-            color.style.color = 'white';
+            image.style.color = 'white';
+            image.classList.add('fa-hand-rock');
+
+            versusText.innerText = "Rock One";
+            fightImage.classList.add('far', 'fa-hand-rock');
+            fightImage.style.color = 'white';
             break;
         case 'r1':
             title.innerText = "Rock Two";
-            color.style.color = 'blue';    
+            image.style.color = 'blue';    
+            image.classList.add('fa-hand-rock');
+
+            versusText.innerText = "Rock Two";
+            fightImage.classList.add('far', 'fa-hand-rock');
+            fightImage.style.color = 'blue';
             break;
         case 'r2':
             title.innerText = "Rock Three";
-            color.style.color = 'green';    
+            image.style.color = 'green';    
+            image.classList.add('fa-hand-rock');
+
+            versusText.innerText = "Rock Three";
+            fightImage.classList.add('far', 'fa-hand-rock');
+            fightImage.style.color = 'green';
             break;
         case 'r3':
             title.innerText = "Rock Four";
-            color.style.color = 'red';    
+            image.style.color = 'red';    
+            image.classList.add('fa-hand-rock');
+
+            versusText.innerText = "Rock Four";
+            fightImage.classList.add('far', 'fa-hand-rock');
+            fightImage.style.color = 'red';
             break;
         case 'r4':
             title.innerText = "Rock Five";
-            color.style.color = 'purple';    
+            image.style.color = 'purple';    
+            image.classList.add('fa-hand-rock');
+
+            versusText.innerText = "Rock Five";
+            fightImage.classList.add('far', 'fa-hand-rock');
+            fightImage.style.color = 'purple';
             break;
         case 'p0':
             title.innerText = "Paper One";
-            color.style.color = 'white';
+            image.style.color = 'white';
+            image.classList.add('fa-hand-paper');
+
+            versusText.innerText = "Paper One";
+            fightImage.classList.add('far', 'fa-hand-paper');
+            fightImage.style.color = 'white';
             break;
         case 'p1':
             title.innerText = "Paper Two";
-            color.style.color = 'blue';
+            image.style.color = 'blue';
+            image.classList.add('fa-hand-paper');
+
+            versusText.innerText = "Paper Two";
+            fightImage.classList.add('far', 'fa-hand-paper');
+            fightImage.style.color = 'blue';
             break;
         case 'p2':
             title.innerText = "Paper Three";
-            color.style.color = 'green';
+            image.style.color = 'green';
+            image.classList.add('fa-hand-paper');
+
+            versusText.innerText = "Paper Three";
+            fightImage.classList.add('far', 'fa-hand-paper');
+            fightImage.style.color = 'green';
             break;
         case 'p3':
             title.innerText = "Paper Four";
-            color.style.color = 'red';
+            image.style.color = 'red';
+            image.classList.add('fa-hand-paper');
+
+            versusText.innerText = "Paper Four";
+            fightImage.classList.add('far', 'fa-hand-paper');
+            fightImage.style.color = 'red';
             break;
         case 'p4':
             title.innerText = "Paper Five";
-            color.style.color = 'purple';
+            image.style.color = 'purple';
+            image.classList.add('fa-hand-paper');
+            
+            versusText.innerText = "Paper Five";
+            fightImage.classList.add('far', 'fa-hand-paper');
+            fightImage.style.color = 'purple';
             break;
         case 's0':
             title.innerText = "Scissor One";
-            color.style.color = 'white';
+            image.style.color = 'white';
+            image.classList.add('fa-hand-scissors');
+
+            versusText.innerText = "Scissor One";
+            fightImage.classList.add('far', 'fa-hand-scissors');
+            fightImage.style.color = 'white';
             break;
         case 's1':
             title.innerText = "Scissor Two";
-            color.style.color = 'blue';
+            image.style.color = 'blue';
+            image.classList.add('fa-hand-scissors');
+
+            versusText.innerText = "Scissor Two";
+            fightImage.classList.add('far', 'fa-hand-scissors');
+            fightImage.style.color = 'blue';
             break;
         case 's2':
             title.innerText = "Scissor Three";
-            color.style.color = 'green';
+            image.style.color = 'green';
+            image.classList.add('fa-hand-scissors');
+
+            versusText.innerText = "Scissor Three";
+            fightImage.classList.add('far', 'fa-hand-scissors');
+            fightImage.style.color = 'green';
             break;
         case 's3':
             title.innerText = "Scissor Four";
-            color.style.color = 'red';
+            image.style.color = 'red';
+            image.classList.add('fa-hand-scissors');
+
+            versusText.innerText = "Scissor Foud";
+            fightImage.classList.add('far', 'fa-hand-scissors');
+            fightImage.style.color = 'red';
             break;
         case 's4':
             title.innerText = "Scissor Five";
-            color.style.color = 'purple';
+            image.style.color = 'purple';
+            image.classList.add('fa-hand-scissors');
+
+            versusText.innerText = "Scissor Five";
+            fightImage.classList.add('far', 'fa-hand-scissors');
+            fightImage.style.color = 'purple';
             break;
     };
 };
