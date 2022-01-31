@@ -283,7 +283,7 @@ function changeSelectedTitle(id) {
 
             versusText.innerText = "Rock One";
             fightImage.classList.add('far', 'fa-hand-rock');
-            fightImage.style.color = 'white';
+            fightImage.style.color = 'black';
             break;
         case 'r1':
             title.innerText = "Rock Two";
@@ -328,7 +328,7 @@ function changeSelectedTitle(id) {
 
             versusText.innerText = "Paper One";
             fightImage.classList.add('far', 'fa-hand-paper');
-            fightImage.style.color = 'white';
+            fightImage.style.color = 'black';
             break;
         case 'p1':
             title.innerText = "Paper Two";
@@ -373,7 +373,7 @@ function changeSelectedTitle(id) {
 
             versusText.innerText = "Scissor One";
             fightImage.classList.add('far', 'fa-hand-scissors');
-            fightImage.style.color = 'white';
+            fightImage.style.color = 'black';
             break;
         case 's1':
             title.innerText = "Scissor Two";
