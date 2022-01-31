@@ -1,4 +1,5 @@
-
+var playerScore = 0;
+var computerScore = 0;
 
 // GRID SELECTION
 const fighters = [
@@ -266,7 +267,7 @@ function startFight(playerFighter, computerFighter) {
             setTimeout(() => {
                 versusText.innerText = 'YOU WIN';
                 container.append(versusText);
-                updateScore('tie');
+                updateScore('win');
             }, SPEED * 6);
             break;
     }
@@ -291,7 +292,22 @@ function displayComputerFighter(fighter) {
 }
 
 function updateScore(result) {
-    
+    let pScore = document.querySelector('.playerScore');
+    let cScore = document.querySelector('.computerScore');
+    switch (result) {
+        case 'tie':
+            break;
+        case 'win':
+            playerScore++;
+            alert(playerScore);
+            pScore.innerText = playerScore; 
+            break;
+        case 'lose':
+            computerScore++;
+            alert(computerScore);
+            cScore.innerText = computerScore;
+            break;
+    }
 }
 
 function resetAnimations(timeout) {
@@ -375,9 +391,6 @@ window.addEventListener('keydown', findFighter);
 
 
 // GAME LOGIC
-
-let computerSelection = computerPlay();
-
 function playRound(playerSelect, computerSelect) {
     // 0 is lose; 1 is tie; 2 is win;
     
@@ -413,7 +426,7 @@ function playRound(playerSelect, computerSelect) {
                 return 0;
                 break;
             } else {
-                return 1;
+                return 2;
                 break;
             }
     };
